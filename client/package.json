@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "axios": "^1.6.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "init": "^0.1.2",
     "lucide-react": "^0.299.0",
     "next": "14.0.4",
+    "npx": "^10.2.2",
     "react": "^18",
     "react-dom": "^18",
+    "tailwind": "^4.0.0",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -26,7 +31,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0",
+    "tailwindcss": "^3.4.0",
     "typescript": "^5"
   }
 }
