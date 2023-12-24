@@ -3,9 +3,7 @@ from django.http import JsonResponse
 import requests
 import environ
 import time
-
 from datetime import datetime
-
 
 env = environ.Env()
 environ.Env.read_env()
