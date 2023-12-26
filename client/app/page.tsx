@@ -23,7 +23,7 @@ export default function Home() {
       console.log(inputData)
       console.log(date.from)
       console.log(date.to)
-      const {data} = await axios.get(`http://127.0.0.1:8000/test?q=${inputData}&from=${date.from}&to=${date.to}`)
+      const {data} = await axios.get(`https://tinanalyzer-9ee51ed39f77.herokuapp.com/test?q=${inputData}&from=${date.from}&to=${date.to}`)
       console.log(data)
       setArticles(data)
     }
