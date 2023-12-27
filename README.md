@@ -7,6 +7,7 @@ Tactical Investment News Analayzer (TINA) is a specialized tool designed to offe
   <li><a href="https://www.djangoproject.com/">Django</a></li>
   <li><a href="https://newsapi.org/">News API</a></li>
   <li><a href="https://huggingface.co/ProsusAI/finbert">FinBERT NLP Model</a></li>
+  <li><a href="https://tailwindcss.com/">Tailwind</a></li>
 </ul>
 
 ## Demo
