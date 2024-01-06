@@ -17,17 +17,9 @@ def main(request):
     from_input = request.GET.get('from')
     to_input = request.GET.get('to')
 
-    from_str_modified = from_input.replace('GMT', '').replace(' (Pacific Standard Time)', '')
-    dt_one = datetime.strptime(from_str_modified, '%a %b %d %Y %H:%M:%S %z')
-    from_parsed = dt_one.strftime('%Y-%m-%d')
+    from_parsed = parse_date(from_input[:15])
+    to_parsed = parse_date(to_input[:15])
 
-    to_str_modified = to_input.replace('GMT', '').replace(' (Pacific Standard Time)', '')
-    dt_two = datetime.strptime(to_str_modified, '%a %b %d %Y %H:%M:%S %z')
-    to_parsed = dt_two.strftime('%Y-%m-%d')
-
-    #print(user_input)
-    #print(from_parsed)
-    #print(to_parsed)
     #print(f"https://newsapi.org/v2/everything?q={user_input}&from={from_parsed}&to={to_parsed}&sortBy=popularity&apiKey={API_KEY}")
     response = requests.get(f"https://newsapi.org/v2/everything?q={user_input}&from={from_parsed}&to={to_parsed}&sortBy=popularity&apiKey={API_KEY}")
     data = response.json()
@@ -38,5 +30,11 @@ def main(request):
     parsed_data = requests.post(API_URL, headers=headers, json={"inputs": titles, "options": {"wait_for_model": True}})
 
     final_data = list(map(lambda x, y: {'sentiment': y, 'article': x}, articles, parsed_data.json()))
+  
     return JsonResponse(final_data, safe=False)
+
+def parse_date(date_str):
+    # Parse the string in the format 'Fri Dec 22 2023'
+    dt = datetime.strptime(date_str, '%a %b %d %Y')
+    return dt.strftime('%Y-%m-%d')
 
